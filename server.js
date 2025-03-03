@@ -30,8 +30,13 @@ app.use(express.json());
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
+// Serve index.html for any unknown routes (fix for "Page Not Found" issue)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // POST endpoint to handle user input and optional file upload
-app.post("https://ai-model-sigma-lac.vercel.app/get", uploads.single("file"), async (req, res) => {
+app.post("/get", uploads.single("file"), async (req, res) => {
   const userInput = req.body.msg; // User's text input
   const file = req.file; // Uploaded file (if any)
 
