@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // POST endpoint to handle user input and optional file upload
-app.post("/get", uploads.single("file"), async (req, res) => {
+app.post("https://ai-model-sigma-lac.vercel.app/get", uploads.single("file"), async (req, res) => {
   const userInput = req.body.msg; // User's text input
   const file = req.file; // Uploaded file (if any)
 
