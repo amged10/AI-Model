@@ -60,7 +60,6 @@ app.post("/get", uploads.single("file"), async (req, res) => {
       };
       prompt.push(image); // Append the image data to the prompt
     }
-    module.exports = app;
     // Generate content using the AI model
     const response = await model.generateContent(prompt);
 
