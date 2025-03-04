@@ -40,6 +40,8 @@ app.post("/get", uploads.single("file"), async (req, res) => {
   const userInput = req.body.msg; // User's text input
   const file = req.file; // Uploaded file (if any)
 
+
+
   try {
     // Get the Generative AI model
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -58,7 +60,7 @@ app.post("/get", uploads.single("file"), async (req, res) => {
       };
       prompt.push(image); // Append the image data to the prompt
     }
-
+    module.exports = app;
     // Generate content using the AI model
     const response = await model.generateContent(prompt);
 
