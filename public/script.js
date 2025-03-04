@@ -46,7 +46,7 @@ function sendMessage() {
 
 // Function to fetch the bot's response from the server
 function fetchBotResponse(formData) {
-    fetch("https://ai-chatbot-tawny-pi.vercel.app/", {
+    fetch("https://ai-chatbot-tawny-pi.vercel.app/api/get", {
         method: "POST",
         body: formData,
     })
